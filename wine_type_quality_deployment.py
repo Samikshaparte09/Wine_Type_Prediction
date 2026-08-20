@@ -10,6 +10,7 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 import numpy as np
+import joblib
 
 model= jobliib.load("Wine type-quality prediction.pkl")
 
