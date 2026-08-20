@@ -11,25 +11,25 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-model= joblib.load("Wine type-quality prediction.pkl")
+model = joblib.load("Wine type-quality prediction.pkl")
 
-st.title("Wine Type Prediction !")
+st.title("Wine Type Predicion!")
 
-fixed_acidity=st.number_input("Fixed Acidity")
-volatile_acidity=st.number_input("Volatile Acidity")
-citric_acid=st.number_input("Citric Acid")
-residual_sugar=st.number_input("Residual Sugar")
-chlorides=st.number_input("Chlorides")
-free_sulfur_dioxide=st.number_input("Free Sulphur Dioxide")
-total_sulfur_dioxide=st.number_input("Total Sulphur Dioxide")
-density=st.number_input("Density")
-pH=st.number_input("pH")
-sulphates=st.number_input("Sulphates")
-alcohol=st.number_input("Alcohol")
-quality=st.number_input("Quality")
+fixed_acidity = st.number_input("Fixed Acidity")
+volatile_acidity = st.number_input("Volatile Acidity")
+citric_acid = st.number_input("Citric Acid")
+residual_sugar = st.number_input("Residual Sugar")
+chlorides = st.number_input("Chlorides")
+free_sulfur_dioxide = st.number_input("Free Sulphur Dioxide")
+total_sulfur_dioxide = st.number_input("Total Sulphur Dioxide")
+density = st.number_input("Density")
+pH = st.number_input("pH")
+sulphates = st.number_input("Sulphates")
+alcohol = st.number_input("Alcohol")
+quality = st.number_input("Quality")
 
 df = pd.DataFrame({
-    "fixed axcidity":[fixed_acidity],
+    "fixed acidity":[fixed_acidity],
     "volatile acidity":[volatile_acidity],
     "citric acid":[citric_acid],
     "residual sugar":[residual_sugar],
@@ -43,9 +43,10 @@ df = pd.DataFrame({
     "quality":[quality]
 })
 
-if st.button("Predict"):
-    prediction=model.predict(df)[0]
-    if prediction==0:
+if st.button("predict wine type"):
+    prediction = model.predict(df)[0]
+
+    if prediction == 0:
         st.write("Red Wine")
     else:
         st.write("White Wine")
